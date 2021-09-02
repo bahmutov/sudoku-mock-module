@@ -15,7 +15,7 @@ describe('Mocking module exports', () => {
   })
 
   it('logs a different name', () => {
-    replaceWebPackModule('src/Name.js', 'Joe')
+    replaceWebPackModule('Name.js', 'Joe', null, 'main.chunk.js')
     cy.visit('/', {
       onBeforeLoad(win) {
         cy.spy(win.console, 'log').as('log')
