@@ -1,6 +1,8 @@
 /// <reference types="cypress" />
 
 import { replaceWebPackModule } from './utils'
+// we need both the default and the named exports
+import * as nameMock from '../fixtures/joe'
 
 describe('Mocking module exports', () => {
   it('logs the real exports', () => {
@@ -83,5 +85,20 @@ describe('Mocking module exports', () => {
     // confirm our mocking stub worked
     cy.get('@getMockName').should('have.been.calledOnce')
     cy.get('@log').should('have.been.calledWith', 'getName returns Alice')
+  })
+
+  it('mocks module using import from JS', () => {
+    replaceWebPackModule('src/Name.js', nameMock, 'main.chunk.js')
+
+    cy.on('window:before:load', (win) => {
+      cy.spy(win.console, 'log').as('log')
+    })
+
+    cy.visit('/')
+
+    cy.get('@log')
+      .should('have.been.calledWith', 'Name is', 'Adam')
+      .and('have.been.calledWith', 'age 8')
+      .and('have.been.calledWith', 'getName returns Leo')
   })
 })
