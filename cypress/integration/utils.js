@@ -16,6 +16,10 @@ export const replaceWebPackModule = (
 
       const moduleFileName = fileName + '":'
       const k = res.body.indexOf(moduleFileName)
+      if (k === -1) {
+        // could not the module in the script
+        return
+      }
       const insertAt = k + moduleFileName.length
       const start = res.body.substring(0, insertAt)
       const finish = res.body.substring(insertAt)

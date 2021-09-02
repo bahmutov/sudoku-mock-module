@@ -32,3 +32,4 @@ cypress/screenshots
 
 # generated screenshots
 *.png
+example-bundles/

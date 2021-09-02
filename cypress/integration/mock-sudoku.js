@@ -387,4 +387,8 @@ describe('Sudoku', () => {
     // confirm the game has called the mock function
     cy.get('@getUniqueSudoku').should('have.been.calledWith', 'Easy')
   })
+
+  it.only('without any mocks', () => {
+    cy.visit('/')
+  })
 })
