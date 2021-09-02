@@ -5,10 +5,13 @@ import initialBoard from '../fixtures/init-array.json'
 
 export const replaceWebPackModule = (
   localModuleName, // like "src/Board.js"
-  newModuleDefault,
-  namedExports,
+  mockedExports,
   jsResourcePattern = /\.js$/,
 ) => {
+  if (!mockedExports) {
+    throw new Error('mockedExports is required')
+  }
+
   cy.intercept(jsResourcePattern, (req) => {
     // remove caching
     delete req.headers['if-none-match']
@@ -33,7 +36,9 @@ export const replaceWebPackModule = (
       const finish = res.body.substring(insertAt)
 
       let namedExportsCode = ''
-      if (namedExports) {
+
+      const namedExports = Cypress._.omit(mockedExports, ['default'])
+      if (!Cypress._.isEmpty(namedExports)) {
         Object.keys(namedExports).forEach((key) => {
           const value = namedExports[key]
           namedExportsCode += `
@@ -43,9 +48,11 @@ export const replaceWebPackModule = (
       }
 
       let defaultExportCode = ''
-      if (newModuleDefault) {
+      if (mockedExports.default) {
         defaultExportCode = `
-          __webpack_exports__['default'] = ${JSON.stringify(newModuleDefault)};
+          __webpack_exports__['default'] = ${JSON.stringify(
+            mockedExports.default,
+          )};
         `
       }
 

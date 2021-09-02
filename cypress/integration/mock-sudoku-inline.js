@@ -6,7 +6,7 @@ describe('Sudoku', () => {
   it('mocks the board inline', () => {
     // have to use the actual values in the mock function
     // because it will be evaluated via text
-    replaceWebPackModule('/solver/UniqueSudoku.js', null, {
+    replaceWebPackModule('/solver/UniqueSudoku.js', {
       getUniqueSudoku: () => [
         [
           '0',

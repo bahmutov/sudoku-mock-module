@@ -14,8 +14,8 @@ describe('Mocking module exports', () => {
       .and('have.been.calledWith', 'age 21')
   })
 
-  it('logs a different name', () => {
-    replaceWebPackModule('Name.js', 'Joe', null, 'main.chunk.js')
+  it('logs a different name after mocking the default export', () => {
+    replaceWebPackModule('Name.js', { default: 'Joe' }, 'main.chunk.js')
     cy.visit('/', {
       onBeforeLoad(win) {
         cy.spy(win.console, 'log').as('log')
@@ -24,8 +24,8 @@ describe('Mocking module exports', () => {
     cy.get('@log').should('have.been.calledWith', 'Name is', 'Joe')
   })
 
-  it('mocks named export', () => {
-    replaceWebPackModule('src/Name.js', 'Joe', { age: 99 })
+  it('mocks the default and the named exports', () => {
+    replaceWebPackModule('src/Name.js', { default: 'Joe', age: 99 })
     cy.visit('/', {
       onBeforeLoad(win) {
         cy.spy(win.console, 'log').as('log')
@@ -39,7 +39,7 @@ describe('Mocking module exports', () => {
   it('mocks named function expression', () => {
     // NOTE: only overrides a single named export
     // if you have other exports that are used, must override them too
-    replaceWebPackModule('src/Name.js', null, { getName: () => 'Mary' })
+    replaceWebPackModule('src/Name.js', { getName: () => 'Mary' })
     cy.visit('/', {
       onBeforeLoad(win) {
         cy.spy(win.console, 'log').as('log')
@@ -49,7 +49,8 @@ describe('Mocking module exports', () => {
   })
 
   it('mocks several exports', () => {
-    replaceWebPackModule('src/Name.js', 'Olaf', {
+    replaceWebPackModule('src/Name.js', {
+      default: 'Olaf',
       age: 10,
       getName: () => 'Olaf',
     })
@@ -67,7 +68,7 @@ describe('Mocking module exports', () => {
   it('mocks named function expression with a cy stub', () => {
     // prepare a stub for the getName export
     const getNameStub = cy.stub().returns('Alice').as('getMockName')
-    replaceWebPackModule('src/Name.js', null, {
+    replaceWebPackModule('src/Name.js', {
       getName: 'window.getMockName',
     })
     cy.visit('/', {

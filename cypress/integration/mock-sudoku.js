@@ -14,7 +14,7 @@ describe('Sudoku', () => {
       ]
     `)
 
-    replaceWebPackModule('/solver/UniqueSudoku.js', null, {
+    replaceWebPackModule('/solver/UniqueSudoku.js', {
       getUniqueSudoku,
     })
     cy.visit('/')
@@ -26,7 +26,7 @@ describe('Sudoku', () => {
       win.__getUniqueSudoku = () => [initialBoard, solvedBoard]
     })
 
-    replaceWebPackModule('/solver/UniqueSudoku.js', null, {
+    replaceWebPackModule('/solver/UniqueSudoku.js', {
       getUniqueSudoku: 'window.__getUniqueSudoku',
     })
     cy.visit('/')
@@ -41,7 +41,7 @@ describe('Sudoku', () => {
         .as('getUniqueSudoku')
     })
 
-    replaceWebPackModule('/solver/UniqueSudoku.js', null, {
+    replaceWebPackModule('/solver/UniqueSudoku.js', {
       getUniqueSudoku: 'window.__getUniqueSudoku',
     })
     cy.visit('/')
