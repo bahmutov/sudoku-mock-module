@@ -12,5 +12,6 @@ describe('Sudoku', () => {
       'main.chunk.js',
     )
     cy.visit('/')
+    cy.contains('.status__time', 'TIME').should('be.visible')
   })
 })
