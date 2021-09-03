@@ -6,8 +6,8 @@
   "license": "MIT",
   "dependencies": {
     "moment": "2.29.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-scripts": "3.4.4"
   },
   "scripts": {
@@ -37,6 +37,6 @@
     "cypress": "8.3.1",
     "mock-in-bundle": "1.1.0",
     "prettier": "2.3.2",
-    "start-server-and-test": "1.13.1"
+    "start-server-and-test": "1.14.0"
   }
 }
