@@ -51,7 +51,6 @@ export const Game = () => {
    * Creates a new game and initializes the state variables.
    */
   function _createNewGame(e) {
-    console.log(getUniqueSudoku)
     const [temporaryInitArray, temporarySolvedArray] = getUniqueSudoku(
       difficulty,
       e,
