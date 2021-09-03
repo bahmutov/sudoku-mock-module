@@ -16,7 +16,9 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "dev": "start-test 3000 cy:open",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "start-test 3000 cy:run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,7 +37,7 @@
   },
   "devDependencies": {
     "cypress": "8.3.1",
-    "mock-in-bundle": "1.1.0",
+    "mock-in-bundle": "1.2.0",
     "prettier": "2.3.2",
     "start-server-and-test": "1.14.0"
   }

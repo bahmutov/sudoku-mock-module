@@ -82,4 +82,6 @@ export const checkBoardMocked = () => {
   Cypress._.slice(initialBoard, 0, 3).forEach((value, index) => {
     cy.get('.game__cell').eq(index).should('have.text', value)
   })
+
+  return cy
 }
