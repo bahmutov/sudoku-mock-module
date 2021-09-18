@@ -37,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "8.4.0",
+    "cypress": "8.4.1",
     "prettier": "2.4.1",
     "start-server-and-test": "1.14.0",
     "mock-in-bundle": "1.3.0"
