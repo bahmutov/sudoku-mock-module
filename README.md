@@ -1,4 +1,4 @@
-# sudoku-mock-module [![ci status][ci image]][ci url] [![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-8.4.0-brightgreen) ![mock-in-bundle version](https://img.shields.io/badge/mock--in--bundle-1.3.0-brightgreen)
+# sudoku-mock-module [![ci status][ci image]][ci url] [![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-8.4.1-brightgreen) ![mock-in-bundle version](https://img.shields.io/badge/mock--in--bundle-1.3.0-brightgreen)
 > Mocking a Webpack module on the fly during E2E Cypress tests
 
 ## Small print
