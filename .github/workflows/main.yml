@@ -15,3 +15,6 @@ jobs:
         with:
           start: npm start
           wait-on: 'http://localhost:3000'
+        env:
+          CYCLOPE_SERVICE_URL: ${{ secrets.CYCLOPE_SERVICE_URL }}
+          CYCLOPE_SERVICE_KEY: ${{ secrets.CYCLOPE_SERVICE_KEY }}
