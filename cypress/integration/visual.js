@@ -1,4 +1,10 @@
 /// <reference types="cypress" />
+
+// https://github.com/dmtrKovalenko/cypress-real-events
+import 'cypress-real-events/support'
+// https://github.com/bahmutov/cyclope
+import 'cyclope'
+
 import React from 'react'
 import { mockInBundle } from 'mock-in-bundle'
 import { checkBoardMocked } from './utils'
@@ -21,5 +27,8 @@ describe('Sudoku', () => {
     cy.visit('/')
     cy.contains('.status__time', 'TIME').should('be.visible')
     checkBoardMocked()
+    cy.get('.status__action-mistakes-mode-switch').click()
+    cy.contains('.status__number', '7').should('be.visible').realHover()
+    cy.clope('board.png')
   })
 })
