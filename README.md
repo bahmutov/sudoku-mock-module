@@ -1,6 +1,11 @@
 # sudoku-mock-module [![ci status][ci image]][ci url] [![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-8.5.0-brightgreen) ![mock-in-bundle version](https://img.shields.io/badge/mock--in--bundle-1.3.0-brightgreen)
 > Mocking a Webpack module on the fly during E2E Cypress tests
 
+## Videos
+
+- [Mock ES6 Module From Cypress E2E Test](https://www.youtube.com/watch?v=RAFdYqRO2vI)
+- [Using Cyclope Visual Testing Plugin With realHover Command](https://youtu.be/G5CtE_LBIno)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
