@@ -238,6 +238,11 @@ body {
   cursor: pointer;
 }
 
+.status__number:hover {
+  background-color: var(--color-orange-dark);
+  text-shadow: 2px 2px 1px var(--color-grey-light);
+}
+
 .status__number.status__number--selected {
   color: var(--color-blue);
 }
