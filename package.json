@@ -41,7 +41,7 @@
     "cypress": "9.0.0",
     "cypress-real-events": "1.5.1",
     "mock-in-bundle": "1.3.0",
-    "prettier": "2.4.1",
+    "prettier": "2.5.0",
     "start-server-and-test": "1.14.0"
   }
 }
