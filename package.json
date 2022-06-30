@@ -37,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "cyclope": "2.2.0",
+    "cyclope": "2.3.1",
     "cypress": "9.7.0",
     "cypress-real-events": "1.7.1",
     "mock-in-bundle": "1.3.0",
